@@ -1,9 +1,43 @@
 <!DOCTYPE html>
 	<head>
 		<title>Pokemon Catch</title>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 	</head>
-	<body style="background: url('https://s-media-cache-ak0.pinimg.com/originals/b1/da/c0/b1dac0470bdf2f7cc0c559599fba19f9.jpg')">
+	<body style="background: url('/client/images/background.jpg')">
 		<h1 style = "color: red;" > Pokemon Catch </h1>
-		<h2> Safari Zone </h2>
+		<h2 style = "color: white;"> Safari Zone </h2>
+		<a href="#" class="play bt" data="lineUpButton">Play</a>
+        <a href="#" class="pause bt" data="lineUpButton">Stop</a>
+
 	</body>
+	<script>
+		$(document).ready(function() {
+		  window.dancers = [];
+		  window.marioDancers=[];
+		  window.bunnyDancers=[];
+		  window.mikeyDancers=[];
+
+		  //play music on load
+		  
+		    var audioElement = document.createElement('audio');
+		    audioElement.setAttribute('src', '/client/images/Theme-Song.mp3');
+		    audioElement.setAttribute('autoplay', 'autoplay');
+		    //audioElement.load()
+		    $.get();
+		    audioElement.addEventListener("load", function() {
+		      audioElement.play();
+		    }, true);
+
+		    $('.play').click(function() {
+		      audioElement.play();
+		    });
+
+		    $('.pause').click(function() {
+		      audioElement.pause();
+		    });
+
+
+		});
+
+	</script>
 </html>

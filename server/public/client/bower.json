@@ -1,0 +1,14 @@
+{
+  "name": "Pokemon Catch",
+  "homepage": "https://github.com/cyruskong1/hrsf53-mvp",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
