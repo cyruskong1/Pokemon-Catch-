@@ -41,10 +41,10 @@ app.get('/login', function(req, res) {
 	res.render('login')
 });
 
-app.get('/signup', function(req, res) {
-	console.log('welcome new user, please sign up to catch Pokemons')
-	res.render('signup')
-});
+// app.get('/signup', function(req, res) {
+// 	console.log('welcome new user, please sign up to catch Pokemons')
+// 	res.render('safari')
+// });
 
 //for testing purposes only, comment before going live
 app.get('/safari', function(req, res) {
@@ -55,6 +55,7 @@ app.get('/safari', function(req, res) {
 //********************* Authentication Routes **********************//
 
 app.post('/signup', function (req, res) {
+	console.log('sending you to the safari zone')
 	//go through authentication process
 	//create a new user
 
