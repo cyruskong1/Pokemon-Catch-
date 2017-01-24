@@ -25,6 +25,19 @@ db.knex.schema.hasTable('users').then(function(exists) {
   }
 });
 
+//********************* Database for Pokemon **********************//
+
+db.knex.schema.hasTable('pokemon').then(function(exists) {
+  if (!exists) {
+    db.knex.schema.createTable('pokemon', function (pokemon) {
+      pokemon.increments('id').primary();
+      pokemon.string('name', 100);
+    }).then(function (table) {
+      console.log('Created Table', table);
+    });
+  }
+});
+
 module.exports = db;
 
 //********************* User model **********************//
