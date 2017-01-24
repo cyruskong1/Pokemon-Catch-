@@ -1,12 +1,26 @@
 //********************* Dependencies **********************//
 var express = require('express');
 var session = require('express-session')
-
+var db = require('./config');
+var partials = require('express-partials');
+var bodyParser = require('body-parser');
+var User = require('./config');
 var app = express();
+
 //set up view engine so you can render views!
 app.set('views', __dirname + '/views')
 app.set('view engine', 'ejs');
-
+app.use(partials());
+// Parse JSON (uniform resource locators)
+app.use(bodyParser.json());
+// Parse forms (signup/login)
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(__dirname + '/public'));
+app.use(session({
+  secret:'shhh, its a secret',
+  resave:false,
+	saveUninitialized:false,
+}));
 //********************* Server Info **********************//
 var server = app.listen (8081, function () {
 	var host = server.address().address;
@@ -41,27 +55,72 @@ app.get('/safari', function(req, res) {
 //********************* Authentication Routes **********************//
 
 app.post('/signup', function (req, res) {
-	console.log('create account here')
 	//go through authentication process
 	//create a new user
-  //check if new username matches any in database
-  	//if no,
-  	  //create password
-      //encrypt
-       //create new session
-    //if user does exist in db
-      //redirect to login
+
+	// var username = req.body.username;
+	// var password = req.body.password;
+	
+	// console.log('create account here', User)
+	// new User ({username : username})
+ //  //check if new username matches any in database
+ //  .fetch()
+ //  .then(function(user){  	
+ //  	//if no,
+ //  	if(!user) {
+ //  	  //create password
+ //      //encrypt
+
+ //  	  bcrypt.hash(password, null, null, function (error, hash) {
+ //  	  	User.create({
+ //  	  		username: username,
+ //  	  		password: hash
+ //  	  	}).then(function(user){
+ //      		//create new session
+ //      		console.log('creating new user and new session')
+ //  	  		return function (req, res, user) {
+ //  	  			return req.session.regenerate(function(){
+ //  	  				req.session.user = newUser;
+ //  	  				res.redirect('/safari')
+ //  	  			})
+ //  	  		}
+ //  	  	})
+ //  	  })
+ //  	} else {  		
+ //    //if user does exist in db
+ //    console.log('user does not exist')
+ //    res.redirect('/signup')
+ //      //redirect to login
+ //  	}
+ //  })
+ res.render('safari')
 })
 
 app.post('/login', function(req, res) {
-		 //check if user name is present
-		 //if no - >
-      //redirect to /login
-      //if yes ->
-      //compare password
-        //if match -> create session and redirect to /
-        //else redirect to /login
-})
+	// var user = new User ({username : req.body.username}).fetch().then(function(user){	
+	// //check if user name is present
+	// //if no user exists - >
+	// 	if(!user) {
+	// 	//redirect to /login
+	// 		console.log('user does not exist')
+	// 		res.redirect('/login')
+	// 	} else {		
+	// 		//if yes ->
+ //      //compare password
+ //      bcrypt.compare(req.body.password, user.get('password'), function(error, hash){
+ //        if(match) {
+ //        //if match -> create session and redirect to /
+ //          util.createSession(req, res, user);
+ //          res.redirect('/');
+ //        //else redirect to /login
+ //        } else {
+ //          res.redirect('/login')
+ //        }
+ //      })
+ //    }
+ //  })
+ res.render('safari')
+});
 
 
 
