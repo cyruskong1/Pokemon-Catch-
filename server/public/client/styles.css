@@ -4,8 +4,12 @@ body{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover; 
-}
+};
 
 .pikachu {
 	background: url("./images/pikachu2.gif");
+};
+
+img:hover {
+	cursor: pointer
 }

@@ -4,13 +4,12 @@ var knex = require('knex')({
 	client:'sqlite3',
 	connection:{
 		//When you use the SQLite3 adapter, there is a filename required, not a network connection.
-		filename: path.join(__dirname, '../database/pokemon.sqlite')
+		filename: path.join(__dirname, '/database/pokemon.sqlite')
 	},
 	//useNullAsDefault because my node server told me to
 	useNullAsDefault: true
 });
 var db = require('bookshelf')(knex);
-
 //********************* Database for Users **********************//
 
 db.knex.schema.hasTable('users').then(function(exists) {

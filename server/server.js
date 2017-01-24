@@ -6,6 +6,18 @@ var partials = require('express-partials');
 var bodyParser = require('body-parser');
 var User = require('./config');
 var app = express();
+//trying something here...
+console.log('dirname', __dirname)
+var path = require('path');
+var knex = require('knex')({
+	client:'sqlite3',
+	connection:{
+		//When you use the SQLite3 adapter, there is a filename required, not a network connection.
+		filename: path.join(__dirname, '/database/pokemon.sqlite')
+	},
+	//useNullAsDefault because my node server told me to
+	useNullAsDefault: true
+});
 
 //set up view engine so you can render views!
 app.set('views', __dirname + '/views')
@@ -56,8 +68,8 @@ app.get('/safari', function(req, res) {
 
 app.post('/signup', function (req, res) {
 	console.log('sending you to the safari zone')
-	//go through authentication process
-	//create a new user
+	// // go through authentication process
+	// // create a new user
 
 	// var username = req.body.username;
 	// var password = req.body.password;
@@ -90,11 +102,11 @@ app.post('/signup', function (req, res) {
  //  	} else {  		
  //    //if user does exist in db
  //    console.log('user does not exist')
- //    res.redirect('/signup')
+ //    res.redirect('/safari')
  //      //redirect to login
  //  	}
  //  })
- res.render('safari')
+ res.redirect('/safari')
 })
 
 app.post('/login', function(req, res) {
@@ -120,8 +132,15 @@ app.post('/login', function(req, res) {
  //      })
  //    }
  //  })
- res.render('safari')
+ res.redirect('/safari')
 });
+
+app.post('/safari', function(req, res){
+	knex('pokemon').insert([{id: null}, {name: 'pikachu'}]).then(function(result){
+		console.log('result', result)
+	});
+	console.log('pokemon caught!')
+})
 
 
 

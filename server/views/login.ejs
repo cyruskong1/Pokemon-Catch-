@@ -3,7 +3,7 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="/client/styles.css">
 	</head>
-	<body style="background: url('/client/images/login-bg.jpg') no-repeat center center fixed">
+	<body style="background: url('/client/images/orig.png') no-repeat center center fixed">
 		<h1 style = "color: red;"> Pokemon Catch </h1>
 		<h2 style = "color: white;"> Sign up or login here </h2>
 			<form action="/signup" method="post">
@@ -23,18 +23,16 @@
   			<a href="/login">Already have an account? Log in instead</a>
 			<p>
 	</body>
+	<script>
+	$(document).ready(function(){
+		var audioElement = document.createElement('audio');
+	    audioElement.setAttribute('src', '/client/images/Theme-Song.mp3');
+	    audioElement.setAttribute('autoplay', 'autoplay');
+	    //audioElement.load()
+	    $.get();
+	    audioElement.addEventListener("load", function() {
+	      audioElement.play();
+	    }, true);
+	})
+	</script>
 </html>
-<!-- 
-<form action="/login" method="post">
-    <div>
-      <label for="username">Username:</label>
-      <input id="username" type="text" name="username">
-    </div>
-    <div>
-      <label for="password">Password:</label>
-      <input id="password" type="password" name="password">
-    </div>
-    <div>
-      <input type="submit" value="Login">
-    </div>
-</form> -->
