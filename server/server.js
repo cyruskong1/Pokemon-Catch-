@@ -58,11 +58,8 @@ app.get('/login', function(req, res) {
 // 	res.render('safari')
 // });
 
-//for testing purposes only, comment before going live
-app.get('/safari', function(req, res) {
-	console.log('you have entered the safari')
-	res.render('safari')
-});
+
+
 
 //********************* Authentication Routes **********************//
 
@@ -142,9 +139,12 @@ app.post('/safari', function(req, res){
 	console.log('pokemon caught!')
 })
 
-
-
-
+//get pokedex info
+app.get('/safari', function(req, res) {
+	// console.log('take a look at all the pikachus')
+	// knex.select().table('pokemon')
+	res.render('safari')
+});
 
 
 

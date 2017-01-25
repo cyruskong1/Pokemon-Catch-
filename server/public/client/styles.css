@@ -11,5 +11,5 @@ body{
 };
 
 img:hover {
-	cursor: pointer
+	cursor: url('./images/Pokeball.png')
 }

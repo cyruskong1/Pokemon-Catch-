@@ -3,7 +3,7 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="/client/styles.css">
 	</head>
-	<body style="background: url('/client/images/orig.png') no-repeat center center fixed">
+	<body style="background: url('/client/images/ash-pokeball.jpg') no-repeat center center fixed">
 		<h1 style = "color: red;"> Pokemon Catch </h1>
 		<h2 style = "color: white;"> Sign up or login here </h2>
 			<form action="/signup" method="post">
@@ -17,6 +17,10 @@
 			    </div>
 			    <div>
 			      <input type="submit" value="Sign up">
+			    </div>
+			    <div>
+			    	<a href="#" class="play bt" data="lineUpButton">Music Activate</a>
+    				<a href="#" class="pause bt" data="lineUpButton">Pause</a>
 			    </div>
 			</form>
 			<p>
@@ -33,6 +37,14 @@
 	    audioElement.addEventListener("load", function() {
 	      audioElement.play();
 	    }, true);
+
+	    $('.play').click(function() {
+	      audioElement.play();
+	    });
+
+	    $('.pause').click(function() {
+	      audioElement.pause();
+	    });
 	})
 	</script>
 </html>

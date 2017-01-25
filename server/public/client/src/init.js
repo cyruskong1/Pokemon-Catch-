@@ -27,12 +27,12 @@
 	  	var DOM_img = document.createElement("img");
 			DOM_img.src = "/client/images/pikachu.gif";
 			var pika = DOM_img;
-			console.log(pika)
 	  	$('.wildArea').append(pika)
 	  })
+
 	  //send pokemon to database
 	  $(".wildArea").click(function () {
-	  	var img = $('img:first', this).remove()
+	  	var img = $('img:first', this)
 	  	//INSERT into pokemon values (null, 'pikachu')
 	  	//delete from DOM
 	  	var didYouCatchIt = function () {
@@ -51,13 +51,20 @@
 				  success: function() {console.log('throwing pokeball!')},
 				  error: function () {console.log('sending to db error')}
 				});
+	  	img.remove()
 	  	}
 	  })
 
 	  $(".showCaught").click(function () {
 	  	//INSERT into pokemon values (null, 'pikachu')
 	  	//delete from DOM
-	  	console.log('loading pokedex')
+	  	$.ajax({
+				  type: "GET",
+				  url: "http://127.0.0.1:8081/safari",
+				 	data: 0,
+				  success: function() {console.log('loading pokedex')},
+				  error: function () {console.log('error getting pokedex')}
+				});
 	  })
 
 
